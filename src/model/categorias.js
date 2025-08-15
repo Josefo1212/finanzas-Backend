@@ -15,12 +15,17 @@ const Categoria = sequelize.define('categorias', {
   },
   usuario_id: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    allowNull: true,
     references: {
       model: Usuario,
       key: 'id_usuario',
     },
   },
+  eliminada: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false
+  }
 },
 {
   tableName: 'categorias',
