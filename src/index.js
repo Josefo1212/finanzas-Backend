@@ -28,7 +28,7 @@ RefreshToken.belongsTo(Usuario, { foreignKey: 'usuario_id' });
 
 async function main(){
     try {
-        await sequelize.sync({force:false});
+        await sequelize.sync({force:true});
         console.log("Conexión a la base de datos establecida exitosamente.");
         app.listen(port, () => {
             console.log(`El servidor está corriendo en el puerto.${port}`);

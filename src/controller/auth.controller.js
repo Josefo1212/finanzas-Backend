@@ -2,8 +2,8 @@ import Sequelize from "sequelize";
 import dotenv from "dotenv";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import Usuario from "../model/usuarios";
-import RefreshToken from "../model/refresh_tokens";
+import Usuario from "../model/usuarios.js";
+import RefreshToken from "../model/refresh_tokens.js";
 
 dotenv.config();
 
@@ -21,9 +21,9 @@ export const register = async (req, res) => {
 
     try {
         // Validaciones de longitud
-        if (username.length < 8 || username.length > 32) {
+        if (username.length < 3 || username.length > 32) {
             return res.status(400).json({
-                message: "El nombre de usuario debe tener entre 8 y 32 caracteres."
+                message: "El nombre de usuario debe tener entre 3 y 32 caracteres."
             });
         }
 
